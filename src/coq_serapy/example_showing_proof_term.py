@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from pathlib import Path
 
 import coq_serapy
@@ -24,8 +26,10 @@ def main():
     # proof_commands = coq_serapy.load_commands(<filename>)
     #    OR
     # proof_commands = coq_serapy.read_commands(<string>)
-    debug_path: Path = Path('~/coq_serapy/debug_proj/debug1_n_plus_1_less_than_n.v').expanduser()
-    proof_commands = coq_serapy.load_commands(debug_path)
+    debug_proj_path: Path = Path('~/coq_serapy/debug_proj/').expanduser()
+    debug_coqfile_path: Path = debug_proj_path / 'debug1_n_plus_1_less_than_n.v'
+    proof_commands = coq_serapy.load_commands(debug_coqfile_path)
+    pprint(f'{proof_commands=}')
 
     with coq_serapy.SerapiContext(
             # How you want the underlying sertop binary to be run. If not sure,
@@ -33,14 +37,16 @@ def main():
             ["sertop", "--implicit"],
             # A top level module for the code to reside in. Empty string or
             # None leaves in the default top module.
-            "MyModule",
+            # "MyModule",
+            "",
             # A prelude directory in which to start the binary
-            ".") as coq:
+            str(debug_proj_path)) as coq:
 
         # Runs commands from a list until we enter a proof, then returns a
         # tuple of (commands-left-over, commands-that-were-run)
-        cmds_left, cmds_run = coq.run_into_next_proof(
-            proof_commands)
+        cmds_left, cmds_run = coq.run_into_next_proof(proof_commands)
+        print(f'{cmds_left=}')
+        print(f'{cmds_run=}')
         assert cmds_run == ["Theorem t: forall n: nat, 1 + n > n."], cmds_run
         # assert cmds_left == [
         #     "Proof.",
