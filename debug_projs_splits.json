@@ -1,0 +1,12 @@
+[
+    {
+        "project_name": "debug_proj",
+        "train_files": [
+            "~/coq_serapy/debug_proj/debug1_n_plus_1_less_than_n.v"
+        ],
+        "test_files": [
+            "~/coq_serapy/debug_proj/debug2_n_plus_0_eq_n.v"
+        ],
+        "switch": "4.12.1"
+    }
+]
