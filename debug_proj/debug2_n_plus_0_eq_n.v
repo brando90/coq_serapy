@@ -16,4 +16,5 @@ Proof.
     rewrite -> IH.
     Show Proof.
     reflexivity.
+    Show Proof.
 Qed.

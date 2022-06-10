@@ -1,4 +1,4 @@
-(* Require Import Omega. *)
+Require Import Omega.
 
  Theorem t:
     forall n: nat, 1 + n > n.

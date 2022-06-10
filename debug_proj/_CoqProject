@@ -1,4 +1,5 @@
--R . debug_proj
+-Q theories ProjectName
+-arg -w -arg -notation-overridden
 
 debug1_n_plus_1_less_than_n.v
 debug2_n_plus_0_eq_n.v
