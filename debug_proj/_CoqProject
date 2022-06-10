@@ -1,4 +1,4 @@
--Q theories ProjectName
+-Q . ProjectName
 -arg -w -arg -notation-overridden
 
 debug1_n_plus_1_less_than_n.v

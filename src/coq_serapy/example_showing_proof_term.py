@@ -56,15 +56,6 @@ def main():
             module_name=coq_serapy.get_module_from_filename(filename),
             # A prelude directory in which to start the binary
             prelude=str(debug_proj_path)) as coq:
-    # with coq_serapy.SerapiContext(
-    #         # How you want the underlying sertop binary to be run. If not sure,
-    #         # use this.
-    #         ["sertop", "--implicit"],
-    #         # A top level module for the code to reside in. Empty string or
-    #         # None leaves in the default top module.
-    #         "MyModule",
-    #         # A prelude directory in which to start the binary
-    #         ".") as coq:
         print(f'{coq=}')
 
         # Runs commands from a list until we enter a proof, then returns a
