@@ -13,6 +13,9 @@ opam repo add coq-released https://coq.inria.fr/opam/released
 # install the right version of coq and pins it to it so that future opam installs don't change the coq version
 opam pin add coq 8.11.0
 
+# useful to see what swith you are on now after the previous setup
+opam switch list
+
 # - install coq-serapi
 opam install coq-serapi
 
